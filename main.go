@@ -2,9 +2,9 @@ package main
 
 import (
     "embed"
-    "fmt"
     "html/template"
     "io/fs"
+    "log"
     "net/http"
 )
 
@@ -27,12 +27,15 @@ func main() {
     html = parseTemplates(templatesFS)
 
     http.HandleFunc("/", func (w http.ResponseWriter, r *http.Request) {
-        fmt.Fprintf(w, "Welcome!")
+        log.Printf("%s: %s", r.Method, r.URL.Path)
+        html.ExecuteTemplate(w, "landing.html", nil)
     })
     http.HandleFunc("/static/style.css", func (w http.ResponseWriter, r *http.Request) {
-        http.FileServer(http.FS(css))
+        log.Printf("%s: %s", r.Method, r.URL.Path)
+        handler := http.FileServer(http.FS(css))
+        handler.ServeHTTP(w, r)
     })
 
-    http.ListenAndServe(":8080", nil)
+    log.Fatal(http.ListenAndServe(":8080", nil))
 }
 
