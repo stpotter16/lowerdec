@@ -36,7 +36,12 @@ func main() {
     })
     http.HandleFunc("/start", func (w http.ResponseWriter, r *http.Request) {
         log.Printf("%s: %s", r.Method, r.URL.Path)
-        html.ExecuteTemplate(w, "start.html", nil)
+        if r.Method != http.MethodPost {
+            html.ExecuteTemplate(w, "start.html", nil)
+            return
+        }
+        log.Printf("%s: %s", "full name:", r.FormValue("name"))
+        log.Printf("%s: %s", "email", r.FormValue("email"))
     })
     http.HandleFunc("/static/style.css", func (w http.ResponseWriter, r *http.Request) {
         log.Printf("%s: %s", r.Method, r.URL.Path)
