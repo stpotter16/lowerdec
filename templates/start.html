@@ -11,30 +11,37 @@
     <body>
         <div class="hero min-h-screen bg-base-200">
             <div class="hero-content flex-col text-center">
-                <div class="max-w-md">
-                    <h2 class="text-3xl font-bold">Lowerdec is launching soon</h2>
-                    <p class="py-6">Flip the script on shopping for insurance. Only get quotes that beat your current policy, ditch the awkward phone calls, and keep your contact information private.</p>
-                    <p class="card-body text-2xl">Get notified when it's time to start saving</p>
-                </div>
-                <div class="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-                    <form class="card-body" method="post">
-                        <div class="form-control">
-                          <label class="label">
-                            <span class="label-text">Full name</span>
-                          </label>
-                          <input name="name" type="text" placeholder="full name" class="input input-bordered" required />
-                        </div>
-                        <div class="form-control">
-                          <label class="label">
-                            <span class="label-text">Email</span>
-                          </label>
-                          <input name="email" type="email" placeholder="email" class="input input-bordered" required />
-                        </div>
-                        <div class="form-control mt-6">
-                            <button class="btn btn-primary">Get notified</button>
-                        </div>
-                    </form>
-                </div>
+                {{if .Success }}
+                    <div class="max-w-md">
+                        <h2 class="text-3xl font-bold">You're in</h2>
+                        <p class="card-body text-2xl">We'll let you know when Lowerdec is ready to start saving you money</p>
+                    </div>
+                {{else}}
+                    <div class="max-w-md">
+                        <h2 class="text-3xl font-bold">Lowerdec is launching soon</h2>
+                        <p class="py-6">Flip the script on shopping for insurance. Only get quotes that beat your current policy, ditch the awkward phone calls, and keep your contact information private.</p>
+                        <p class="card-body text-2xl">Get notified when it's time to start saving</p>
+                    </div>
+                    <div class="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+                        <form class="card-body" method="post">
+                            <div class="form-control">
+                              <label class="label">
+                                <span class="label-text">Full name</span>
+                              </label>
+                              <input name="name" type="text" placeholder="full name" class="input input-bordered" required />
+                            </div>
+                            <div class="form-control">
+                              <label class="label">
+                                <span class="label-text">Email</span>
+                              </label>
+                              <input name="email" type="email" placeholder="email" class="input input-bordered" required />
+                            </div>
+                            <div class="form-control mt-6">
+                                <button class="btn btn-primary">Get notified</button>
+                            </div>
+                        </form>
+                    </div>
+                {{end}}
             </div>
         </div>
     </body>
