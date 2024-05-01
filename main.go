@@ -15,6 +15,9 @@ var (
     //go:embed all:templates/*
     templatesFS embed.FS
 
+    //go:embed static/assets/favicon.ico
+    favicon embed.FS
+
     html *template.Template
 )
 
@@ -43,6 +46,12 @@ func main() {
     http.HandleFunc("/static/style.css", func (w http.ResponseWriter, r *http.Request) {
         log.Printf("%s: %s", r.Method, r.URL.Path)
         handler := http.FileServer(http.FS(css))
+        handler.ServeHTTP(w, r)
+    })
+    http.HandleFunc("/static/assets/favicon.ico", func (w http.ResponseWriter, r *http.Request) {
+        log.Printf("In the favicon handler")
+        log.Printf("%s: %s", r.Method, r.URL.Path)
+        handler := http.FileServer(http.FS(favicon))
         handler.ServeHTTP(w, r)
     })
 
