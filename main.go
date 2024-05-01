@@ -30,10 +30,6 @@ func main() {
         log.Printf("%s: %s", r.Method, r.URL.Path)
         html.ExecuteTemplate(w, "landing.html", nil)
     })
-    http.HandleFunc("/about", func (w http.ResponseWriter, r *http.Request) {
-        log.Printf("%s: %s", r.Method, r.URL.Path)
-        html.ExecuteTemplate(w, "about.html", nil)
-    })
     http.HandleFunc("/start", func (w http.ResponseWriter, r *http.Request) {
         log.Printf("%s: %s", r.Method, r.URL.Path)
         if r.Method != http.MethodPost {
