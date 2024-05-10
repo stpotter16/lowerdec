@@ -17,6 +17,9 @@ COPY --from=builder /usr/local/bin/litestream /usr/local/bin/litestream
 
 RUN apk add bash
 
+COPY etc/litestream.yml /etc/litestream.yml
+COPY scripts/run.sh /scripts/run.sh
+
 EXPOSE 8080
 
-CMD [ "/usr/local/bin/lowerdec" ]
+CMD [ "/scripts/run.sh" ]
