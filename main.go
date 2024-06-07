@@ -14,7 +14,6 @@ import (
     "syscall"
 
     _ "github.com/mattn/go-sqlite3"
-    "github.com/google/uuid"
 )
 
 var (
@@ -111,11 +110,11 @@ func run() error {
             html.ExecuteTemplate(w, "start.html", nil)
             return
         }
-        log.Printf("%s: %s", "full name", r.FormValue("name"))
-        log.Printf("%s: %s", "email", r.FormValue("email"))
-        userId := uuid.New()
-        if _, err := db.Exec(`INSERT INTO signups (userId, name, email) VALUES (?, ?, ?)`, userId.String(), r.FormValue("name"), r.FormValue("email")); err != nil {
-            // TODO - should return an error
+        log.Printf("%s: %s", "dec", r.FormValue("dec"))
+        _ , handler, _ := r.FormFile("dec")
+        log.Printf("File size: %d", handler.Size)
+        if err != nil {
+            fmt.Fprintln(os.Stderr, err)
             http.Error(w, err.Error(), http.StatusInternalServerError)
         }
         html.ExecuteTemplate(w, "start.html", struct{ Success bool }{true})

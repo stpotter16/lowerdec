@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-        <meta http-equi="X-UA-Compatable" content="ie=edge"/>
+        <meta http-equiv="X-UA-Compatable" content="ie=edge"/>
         <link href="https://cdn.jsdelivr.net/npm/daisyui@4.10.2/dist/full.min.css" rel="stylesheet" type="text/css" />
         <link rel="icon" type="image/x-icon" href="/static/assets/favicon.ico">
         <script src="https://cdn.tailwindcss.com"></script>
@@ -14,32 +14,33 @@
             <div class="hero-content flex-col text-center">
                 {{if .Success }}
                     <div class="max-w-md">
-                        <h2 class="text-3xl font-bold">You're in</h2>
-                        <p class="card-body text-2xl">We'll let you know when LowerDec is ready to start saving you money</p>
+                        <h2 class="text-3xl font-bold">Boom!</h2>
+                        <p class="card-body text-2xl">Here's the info we go from your dec page. Check it over to see if it's right.</p>
+                        <div class="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+                            <p>Name</p>
+                        </div>
+                        <div class="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+                            <p>Current Address</p>
+                        </div>
+                        <div class="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+                            <p>Coverage Details</p>
+                        </div>
                     </div>
                 {{else}}
                     <h2 class="text-5xl font-bold my-16">Get in loser, we're going insurance shopping</h2>
                     <div class="max-w-md">
-                        <h2 class="text-3xl font-bold">LowerDec is launching soon</h2>
-                        <p class="py-6 text-2xl">Flip the script on shopping for insurance. Only get quotes that beat your current policy, ditch the awkward phone calls, and keep your contact information private.</p>
-                        <p class="card-body text-2xl">Get notified when it's time to start saving</p>
+                        <h2 class="text-3xl font-bold">Drop your dec page below to get started</h2>
                     </div>
                     <div class="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-                        <form class="card-body" method="post">
+                        <form class="card-body" method="post" enctype="multipart/form-data">
                             <div class="form-control">
                               <label class="label">
-                                <span class="label-text">Full name</span>
+                                <span class="label-text">Dec Page</span>
                               </label>
-                              <input name="name" type="text" placeholder="full name" class="input input-bordered" required />
-                            </div>
-                            <div class="form-control">
-                              <label class="label">
-                                <span class="label-text">Email</span>
-                              </label>
-                              <input name="email" type="email" placeholder="email" class="input input-bordered" required />
+                              <input name="dec" type="file" placeholder="Dec page" class="input" required />
                             </div>
                             <div class="form-control mt-6">
-                                <button class="btn btn-primary">Get notified</button>
+                                <button class="btn btn-primary">Upload</button>
                             </div>
                         </form>
                     </div>
