@@ -17,7 +17,7 @@ import (
 )
 
 var (
-    //go:embed  static/style.css
+    //go:embed  static/css/output.css
     css embed.FS
 
     //go:embed all:templates/*
@@ -27,6 +27,8 @@ var (
     favicon embed.FS
     //go:embed static/assets/logo.png
     navLogo embed.FS
+    //go:embed static/assets/logo-light.svg
+    svgLog embed.FS
 )
 
 const DB_PATH = "DB_PATH"
@@ -119,7 +121,7 @@ func run() error {
         }
         html.ExecuteTemplate(w, "start.html", struct{ Success bool }{true})
     })
-    http.HandleFunc("/static/style.css", func (w http.ResponseWriter, r *http.Request) {
+    http.HandleFunc("/static/css/output.css", func (w http.ResponseWriter, r *http.Request) {
         log.Printf("%s: %s", r.Method, r.URL.Path)
         handler := http.FileServer(http.FS(css))
         handler.ServeHTTP(w, r)
@@ -132,6 +134,11 @@ func run() error {
     http.HandleFunc("/static/assets/logo.png", func (w http.ResponseWriter, r *http.Request) {
         log.Printf("%s: %s", r.Method, r.URL.Path)
         handler := http.FileServer(http.FS(navLogo))
+        handler.ServeHTTP(w, r)
+    })
+    http.HandleFunc("/static/assets/logo-light.svg", func (w http.ResponseWriter, r *http.Request) {
+        log.Printf("%s: %s", r.Method, r.URL.Path)
+        handler := http.FileServer(http.FS(svgLog))
         handler.ServeHTTP(w, r)
     })
 

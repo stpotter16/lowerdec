@@ -1,32 +1,29 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en">
     <head>
         <meta charset="UTF-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <meta http-equiv="X-UA-Compatable" content="ie=edge"/>
         <link rel="icon" type="image/x-icon" href="/static/assets/favicon.ico">
-        <script src="https://cdn.tailwindcss.com"></script>
+        <link href="/static/css/output.css" rel="stylesheet"/>
         <title>LowerDec</title>
     </head>
     <body>
-        <nav class="navbar sticky top-0 bg-base-200">
-            <div class="container mx-auto">
-                <div class="flex-none">
-                    <img class="mr-8" src="/static/assets/logo.png"/>
-                </div>
-                <div class="flex-1">
-                    <a href="/">
-                        <span class="text-xl text-bold">LowerDec</span>
-                    </a>
-                </div>
-                <div class="flex-none">
-                    <ul class="menu menu-horizontal items-center px-1">
-                        <li><a href="/start" class="btn btn-primary text-xl">Get started</a></li>
-                    </ul>
-                </div>
+        <header class="flex items-center justify-between px-4 py-2 bg-gray-900">
+            <div>
+                <img class="h-6" src="/static/assets/logo-light.svg" alt="LowerDec"/>
             </div>
-        </nav>
-        <section class="relative px-8 pt-20 md:pt-28 pb-52 md:pb-40 bg-base-200">
+            <div>
+                <button type="button" class="block text-gray-500 hover:text-white focus:text-white focus:outline-none">
+                    <svg class="h-6 w-6 fill-current" viewBox="0 0 80 80">
+                        <rect width="80" height="10"></rect>
+                        <rect y="30" width="80" height="10"></rect>
+                        <rect y="60" width="80" height="10"></rect>
+                    </svg>
+                </button>
+            </div>
+        </header>
+        <section class="relative px-8 pt-20 md:pt-28 pb-52 md:pb-40 bg-gray-200">
             <div class="container text-center text-lg-left mx-auto">
                 <div class="grid-cols-1">
                     <div class="max-x-auto text-center">
@@ -37,7 +34,7 @@
                 </div>
             </div>
         </section>
-        <section class="relative px-8 pt-28 pb-52 md:pb-40 bg-base-200">
+        <section class="relative px-8 pt-28 pb-52 md:pb-40 bg-gray-200">
             <div class="container text-center text-lg-left mx-auto">
                 <div class="grid-cols-1">
                     <div class="max-x-auto text-center">
@@ -68,7 +65,7 @@
                 </div>
             </div>
         </section>
-        <footer class="footer footer-center p-4 bg-base-300 text-base-content">
+        <footer class="footer footer-center p-4 bg-gray-300 text-base-content">
           <aside>
             <p>LowerDec, LLC</p>
           </aside>
