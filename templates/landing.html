@@ -8,7 +8,7 @@
         <link href="/static/css/output.css" rel="stylesheet"/>
         <title>LowerDec</title>
     </head>
-    <body>
+    <body class="bg-gray-100">
         <header class="bg-gray-900 sm:flex sm:justify-between sm:items-center sm:px-4 sm:py-3">
             <div class="flex items-center justify-between px-4 py-3 sm:p-0">
                 <div>
@@ -24,21 +24,17 @@
                     </button>
                 </div>
             </div>
-            <div id="nav-menu" class="hidden px-2 pt-2 pb-4 sm:flex">
+            <nav id="nav-menu" class="hidden px-2 pt-2 pb-4 sm:flex">
                 <a href="#" class="block px-2 py-1 text-white font-semibold rounded hover:bg-gray-800">Login</a>
                 <a href="#" class="mt-1 block px-2 py-1 text-white font-semibold rounded hover:bg-gray-800 sm:mt-0 sm:ml-2">About</a>
                 <a href="#" class="mt-1 block px-2 py-1 text-white font-semibold rounded hover:bg-gray-800 sm:mt-0 sm:ml-2">Help</a>
-            </div>
+            </nav>
         </header>
-        <section class="relative px-8 pt-20 md:pt-28 pb-52 md:pb-40 bg-gray-200">
-            <div class="container text-center text-lg-left mx-auto">
-                <div class="grid-cols-1">
-                    <div class="max-x-auto text-center">
-                        <h1 class="text-6xl font-bold">Get quotes.<br>Not cold calls.</h1>
-                        <p class="text-3xl py-6">We're not here to waste your time - or give your contact info away. <br>Get quotes that beat your current policy without handing over your phone number.</p>
-                        <a href="/start" class="btn btn-primary w-80 text-xl">Get started</a>
-                    </div>
-                </div>
+        <section class="p-8">
+            <h1 class="text-center text-2xl font-bold text-gray-900 leading-tight">Don't Just Compare, Connect.</h1>
+            <p class="text-center mt-4 text-gray-600">Let a real person help you find the insurance policy you need.</p>
+            <div class="mt-4 flex justify-center">
+                <a href="/start" class="inline-block bg-gray-400 px-5 py-3 rounded-lg shadow-lg text-white text-sm uppercase tracking-wider font-semibold" >Get started</a>
             </div>
         </section>
         <section class="relative px-8 pt-28 pb-52 md:pb-40 bg-gray-200">
