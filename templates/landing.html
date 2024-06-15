@@ -8,7 +8,7 @@
         <link href="/static/css/output.css" rel="stylesheet"/>
         <title>LowerDec</title>
     </head>
-    <body class="bg-gray-100">
+    <body class="antialiased bg-gray-100 flex flex-col min-h-screen">
         <header class="bg-gray-900 sm:flex sm:justify-between sm:items-center sm:px-4 sm:py-3">
             <div class="flex items-center justify-between px-4 py-3 sm:p-0">
                 <div>
@@ -39,9 +39,9 @@
         </section>
         <section class="p-8">
             <h1 class="text-center text-2xl font-bold text-gray-900 leading-tight">Insurance shopping for the 21st century.</h1>
-            <p class="text-center mt-4 text-gray-600">LowerDec puts you in the driver's seat. We believe shopping for insurance can be fun.</p>
-            <div class="mt-4 text-center">
-                <div class="flex flex-col items-center">
+            <p class="text-center mt-4 text-gray-600">LowerDec puts you in the driver's seat. Shopping for insurance online shouldn't have to suck.</p>
+            <div class="mt-6 lg:flex lg:items-center lg:justify-center text-center">
+                <div class="lg:mx-4 lg:w-1/3 flex flex-col items-center ">
                     <!--https://www.svgrepo.com/svg/483410/handshake-->
                     <svg class="h-8 w-8" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" id="_x32_" fill="#000" stroke="#000" version="1.1" viewBox="0 0 512 512">
                         <g id="SVGRepo_iconCarrier">
@@ -53,7 +53,7 @@
                     <h2 class="pt-4 font-bold text-gray-900">Personal</h2>
                     <p class="pt-2">Get quotes from a real person, not an algorithm.</p>
                 </div>
-                <div class="mt-4 flex flex-col items-center">
+                <div class="mt-6 lg:mt-0 lg:mx-4 lg:w-1/3 flex flex-col items-center">
                     <!--https://www.svgrepo.com/svg/532323/lock-alt-->
                     <svg class="h-8 w-8" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                         <path stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14.5v2m-5-6.471C7.471 10 8.053 10 8.8 10h6.4c.747 0 1.329 0 1.8.029m-10 0c-.588.036-1.006.117-1.362.298a3 3 0 0 0-1.311 1.311C4 12.28 4 13.12 4 14.8v1.4c0 1.68 0 2.52.327 3.162a3 3 0 0 0 1.311 1.311C6.28 21 7.12 21 8.8 21h6.4c1.68 0 2.52 0 3.162-.327a3 3 0 0 0 1.311-1.311C20 18.72 20 17.88 20 16.2v-1.4c0-1.68 0-2.52-.327-3.162a3 3 0 0 0-1.311-1.311c-.356-.181-.774-.262-1.362-.298m-10 0V8a5 5 0 0 1 10 0v2.029"/>
@@ -61,7 +61,7 @@
                     <h2 class="pt-4 font-bold text-gray-900">Private</h2>
                     <p class="pt-2">We don’t give out your contact information until you’re ready to make a deal.</p>
                 </div>
-                <div class="mt-4 flex flex-col items-center">
+                <div class="mt-6 lg:mt-0 lg:mx-4 lg:w-1/3 flex flex-col items-center">
                     <!--https://www.svgrepo.com/svg/524415/check-circle-->
                     <svg class="h-8 w-8" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                         <g stroke="#1C274C" stroke-width="1.5">
@@ -72,15 +72,15 @@
                     <h2 class="pt-4 font-bold text-gray-900">Easy</h2>
                     <p class="pt-2">Just a few questions and we'll have all the information we need.</p>
                 </div>
-            <div>
+            </div>
         </section>
-        <section class="p-8">
-            <h1 class="text-center text-2xl font-bold text-gray-900 leading-tight">Ready. Set. Connect.</h1>
+        <section class="p-8 md:hidden">
+            <h1 class="text-center text-2xl font-bold text-gray-900 leading-tight">Ready?</h1>
             <div class="mt-4 flex justify-center">
                 <a href="/start" class="inline-block bg-gray-400 px-5 py-3 rounded-lg shadow-lg text-white text-sm uppercase tracking-wider font-semibold" >Get started</a>
             </div>
         </section>
-        <footer class="p-4 bg-gray-900 text-center">
+        <footer class="mt-auto p-4 bg-gray-900 text-center">
             <p class="text-white">LowerDec, LLC</p>
         </footer>
         <script>
