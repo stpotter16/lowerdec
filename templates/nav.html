@@ -1,0 +1,31 @@
+<header class="bg-gray-900 sm:flex sm:justify-between sm:items-center sm:px-4 sm:py-3">
+    <div class="flex items-center justify-between px-4 py-3 sm:p-0">
+        <div>
+            <img class="h-6" src="/static/assets/logo-light.svg" alt="LowerDec"/>
+        </div>
+        <div class="sm:hidden">
+            <button id="hamburger" type="button" class="block text-gray-500 hover:text-white focus:text-white focus:outline-none">
+                <svg class="h-6 w-6 fill-current" viewBox="0 0 80 80">
+                    <rect width="80" height="10"></rect>
+                    <rect y="30" width="80" height="10"></rect>
+                    <rect y="60" width="80" height="10"></rect>
+                </svg>
+            </button>
+        </div>
+    </div>
+    <nav id="nav-menu" class="hidden px-2 pt-2 pb-4 sm:flex">
+        <a href="#" class="block px-2 py-1 text-white font-semibold rounded hover:bg-gray-800">Login</a>
+        <a href="#" class="mt-1 block px-2 py-1 text-white font-semibold rounded hover:bg-gray-800 sm:mt-0 sm:ml-2">About</a>
+        <a href="#" class="mt-1 block px-2 py-1 text-white font-semibold rounded hover:bg-gray-800 sm:mt-0 sm:ml-2">Help</a>
+    </nav>
+</header>
+<script>
+    const hamburgerButton = document.getElementById("hamburger");
+    const navMenu = document.getElementById("nav-menu");
+
+    function toggleHamburger() {
+        navMenu.classList.toggle("hidden");
+    }
+
+    hamburgerButton.addEventListener("click", toggleHamburger);
+</script>
