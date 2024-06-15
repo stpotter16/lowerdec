@@ -30,6 +30,16 @@
                 <a href="#" class="mt-1 block px-2 py-1 text-white font-semibold rounded hover:bg-gray-800 sm:mt-0 sm:ml-2">Help</a>
             </nav>
         </header>
+        <script>
+            const hamburgerButton = document.getElementById("hamburger");
+            const navMenu = document.getElementById("nav-menu");
+
+            function toggleHamburger() {
+                navMenu.classList.toggle("hidden");
+            }
+
+            hamburgerButton.addEventListener("click", toggleHamburger);
+        </script>
         <section class="p-8 lg:pt-12 xl:pt-16">
             <h1 class="text-center text-2xl lg:text-3xl xl:text-4xl font-bold text-gray-900 leading-tight">Don't Just Compare, Connect.</h1>
             <p class="text-center lg:text-lg xl:text-xl mt-4 text-gray-600">Let a real person help you find the insurance policy you need.</p>
@@ -83,15 +93,5 @@
         <footer class="mt-auto p-4 bg-gray-900 text-center">
             <p class="text-white lg:text-lg xl:text-xl">LowerDec, LLC</p>
         </footer>
-        <script>
-            const hamburgerButton = document.getElementById("hamburger");
-            const navMenu = document.getElementById("nav-menu");
-
-            function toggleHamburger() {
-                navMenu.classList.toggle("hidden");
-            }
-
-            hamburgerButton.addEventListener("click", toggleHamburger);
-        </script>
     </body>
 </html>
