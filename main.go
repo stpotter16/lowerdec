@@ -2,7 +2,7 @@ package main
 
 import (
     "context"
-    "database/sql"
+    _ "database/sql"
     "embed"
     "fmt"
     "html/template"

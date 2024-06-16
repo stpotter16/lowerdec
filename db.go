@@ -2,6 +2,7 @@ package main
 
 import (
     "database/sql"
+    _ "embed"
     "fmt"
     "log"
     "net/url"
@@ -9,6 +10,9 @@ import (
 
     _ "github.com/mattn/go-sqlite3"
 )
+
+//go:embed schema.sql
+var schemaSQL string
 
 func initDB() (*sql.DB, error) {
     // Collapse all this DB stuff
@@ -30,8 +34,8 @@ func initDB() (*sql.DB, error) {
     }
     defer db.Close()
 
-    if _, err := db.Exec(`CREATE TABLE IF NOT EXISTS signups (userId STRING PRIMARY KEY, name STRING, email STRING);`); err != nil {
-        return nil, fmt.Errorf("Cannot create table: %w", err)
+    if _, err := db.Exec(schemaSQL); err != nil {
+        return nil, fmt.Errorf("Cannot create table schema: %w", err)
     }
 
     if err := check_db_settings(db); err != nil {
