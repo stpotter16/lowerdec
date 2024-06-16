@@ -103,6 +103,7 @@ func run() error {
     }
 
     http.HandleFunc("/", func (w http.ResponseWriter, r *http.Request) {
+        log.Printf("Host: %s", r.Host)
         log.Printf("%s: %s", r.Method, r.URL.Path)
         html.ExecuteTemplate(w, "landing.html", nil)
     })
@@ -121,6 +122,13 @@ func run() error {
         }
         html.ExecuteTemplate(w, "start.html", struct{ Success bool }{true})
     })
+
+    http.HandleFunc("agent.lowerdec.localhost/", func (w http.ResponseWriter, r *http.Request) {
+        log.Printf("Host: %s", r.Host)
+        log.Printf("%s: %s", r.Method, r.URL.Path)
+        fmt.Fprintf(w, "Hello from agents")
+    })
+
     http.HandleFunc("/static/css/output.css", func (w http.ResponseWriter, r *http.Request) {
         log.Printf("%s: %s", r.Method, r.URL.Path)
         handler := http.FileServer(http.FS(css))
