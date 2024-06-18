@@ -14,12 +14,14 @@ import (
 //go:embed schema.sql
 var schemaSQL string
 
-func initDB() (*sql.DB, error) {
+var db *sql.DB
+
+func initDB() error {
 	// Collapse all this DB stuff
 	dbPath, present := os.LookupEnv(DB_PATH)
 
 	if !present {
-		return nil, fmt.Errorf("%s not set", DB_PATH)
+		fmt.Errorf("%s not set", DB_PATH)
 	}
 
 	// TODO - This should really be configured via environment variables
@@ -30,19 +32,19 @@ func initDB() (*sql.DB, error) {
 
 	db, err := sql.Open("sqlite3", dsn)
 	if err != nil {
-		return nil, err
+		return err
 	}
 	defer db.Close()
 
 	if _, err := db.Exec(schemaSQL); err != nil {
-		return nil, fmt.Errorf("Cannot create table schema: %w", err)
+		return fmt.Errorf("Cannot create table schema: %w", err)
 	}
 
 	if err := check_db_settings(db); err != nil {
-		return nil, err
+		return err
 	}
 
-	return db, nil
+	return nil
 }
 
 func check_db_settings(db *sql.DB) error {
