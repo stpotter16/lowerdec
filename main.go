@@ -36,18 +36,22 @@ func run() error {
 		return err
 	}
 
+    mux := http.NewServeMux()
+
 	// Users
-	http.HandleFunc("GET /", LowerDecLanding)
-	http.HandleFunc("GET /start", GetPolicyStart)
-	http.HandleFunc("POST /start", PostPolicyStart)
+	mux.HandleFunc("GET /", LowerDecLanding)
+	mux.HandleFunc("GET /start", GetPolicyStart)
+	mux.HandleFunc("POST /start", PostPolicyStart)
 
 	// Agents
-	http.HandleFunc("GET agent.lowerdec.localhost/", AgengLowerDecLanding)
+	mux.HandleFunc("GET agent.lowerdec.localhost/", AgengLowerDecLanding)
 
 	// Common
-	http.Handle("GET /static/", http.FileServer(http.FS(staticFS)))
+	mux.Handle("GET /static/", http.FileServer(http.FS(staticFS)))
 
-	http.ListenAndServe(":8080", nil)
+    handler := Logging(mux)
+
+	http.ListenAndServe(":8080", handler)
 
 	<-ctx.Done()
 	log.Print("Received termination signal. Shutting down")
